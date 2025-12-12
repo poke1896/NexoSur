@@ -19,7 +19,7 @@ export default function DashboardClient({ artisanSlug }) {
     const r = await fetch(`/api/dashboard/products?slug=${encodeURIComponent(artisanSlug)}`);
     const j = await r.json();
     setData(j);
-  }, []);
+  }, [artisanSlug]);
 
   const fetchStats = useCallback(async () => {
     const r = await fetch(`/api/analytics/stats?slug=${artisanSlug}`);
@@ -127,7 +127,7 @@ export default function DashboardClient({ artisanSlug }) {
           )}
         </div>
         {!editingId && (
-          <p className="text-sm text-gray-600 mb-3">Para editar, selecciona un producto en la lista y pulsa "Editar".</p>
+          <p className="text-sm text-gray-600 mb-3">Para editar, selecciona un producto en la lista y pulsa &quot;Editar&quot;.</p>
         )}
         <form onSubmit={addOrUpdateProduct} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="ID único" value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value })} required />
