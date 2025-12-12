@@ -1,0 +1,9 @@
+{
+  "/artisans/[slug]/page": "app/artisans/[slug]/page.js",
+  "/login/page": "app/login/page.js",
+  "/artisans/[slug]/products/[productId]/page": "app/artisans/[slug]/products/[productId]/page.js",
+  "/create-artisan/page": "app/create-artisan/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/api/analytics/stats/route": "app/api/analytics/stats/route.js",
+  "/api/dashboard/products/route": "app/api/dashboard/products/route.js"
+}
