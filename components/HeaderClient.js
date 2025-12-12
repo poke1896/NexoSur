@@ -11,9 +11,9 @@ export default function HeaderClient() {
   const { isAuthenticated, user, logout } = useAuth();
   const { show } = useToast();
   return (
-    <header className="border-b">
+    <header className="border-b border-brand/10 bg-gradient-to-r from-brand/5 via-white to-emerald-50/30 shadow-sm">
       <div className="container-tight py-4 flex items-center justify-between">
-        <a href="/" className="font-semibold text-xl text-brand">NexoSur</a>
+        <a href="/" className="font-bold text-2xl bg-gradient-to-r from-brand to-emerald-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">NexoSur</a>
         <div className="flex items-center gap-4">
           <nav className="text-sm text-gray-600 hidden sm:block">{t('brandTagline')}</nav>
           {user?.artisanSlug && (

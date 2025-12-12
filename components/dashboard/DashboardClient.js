@@ -86,25 +86,25 @@ export default function DashboardClient({ artisanSlug }) {
     }
   }
 
-  if (loading || !data) return <p>Cargando…</p>;
+  if (loading || !data) return <div className="flex justify-center items-center py-20 animate-fade-in"><div className="text-gray-500">Cargando dashboard…</div></div>;
   const artisan = data.artisan;
   const products = artisan?.products || [];
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">Dashboard — {artisan?.name || artisanSlug}</h1>
+    <div className="space-y-6 animate-fade-in">
+      <div className="animate-slide-down">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Dashboard — {artisan?.name || artisanSlug}</h1>
         {stats && (
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="card p-4">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="card p-4 animate-slide-up border-l-4 border-brand shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: '100ms' }}>
               <div className="text-sm text-gray-600">Visitas al emprendimiento</div>
-              <div className="text-2xl font-bold">{stats.artisanVisits}</div>
+              <div className="text-2xl font-bold text-brand">{stats.artisanVisits}</div>
             </div>
-            <div className="card p-4">
+            <div className="card p-4 animate-slide-up border-l-4 border-emerald-600 shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: '200ms' }}>
               <div className="text-sm text-gray-600">Visitas a productos</div>
-              <div className="text-2xl font-bold">{stats.totalProductVisits}</div>
+              <div className="text-2xl font-bold text-emerald-600">{stats.totalProductVisits}</div>
             </div>
-            <div className="card p-4">
+            <div className="card p-4 animate-slide-up border-l-4 border-amber-500 shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: '300ms' }}>
               <div className="text-sm text-gray-600">Top productos</div>
               <div className="mt-2 space-y-1 max-h-32 overflow-auto">
                 {(stats.topProducts || []).map((p) => (
@@ -119,9 +119,9 @@ export default function DashboardClient({ artisanSlug }) {
         )}
       </div>
 
-      <div className="card p-4">
+      <div className="card p-4 animate-slide-up border border-slate-200 shadow-md" style={{ animationDelay: '400ms' }}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-          <h2 className="font-semibold">{editingId ? 'Editar producto seleccionado' : 'Agregar producto nuevo'}</h2>
+          <h2 className="font-bold text-lg text-gray-900">{editingId ? '✏️ Editar producto seleccionado' : '➕ Agregar producto nuevo'}</h2>
           {editingId && (
             <Button variant="outline" onClick={cancelEdit} type="button">Cancelar edición</Button>
           )}
@@ -130,34 +130,34 @@ export default function DashboardClient({ artisanSlug }) {
           <p className="text-sm text-gray-600 mb-3">Para editar, selecciona un producto en la lista y pulsa "Editar".</p>
         )}
         <form onSubmit={addOrUpdateProduct} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input className="border rounded px-3 py-2" placeholder="ID único" value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value })} required />
-          <input className="border rounded px-3 py-2" placeholder="Título (ES)" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
-          <input className="border rounded px-3 py-2" placeholder="Title (EN)" value={form.title_en} onChange={(e) => setForm({ ...form, title_en: e.target.value })} />
-          <input className="border rounded px-3 py-2" placeholder="Precio" type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
-          <input className="border rounded px-3 py-2 sm:col-span-2" placeholder="URL de imagen" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} required />
-          <textarea className="border rounded px-3 py-2 sm:col-span-2" placeholder="Descripción (ES)" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-          <textarea className="border rounded px-3 py-2 sm:col-span-2" placeholder="Description (EN)" value={form.description_en} onChange={(e) => setForm({ ...form, description_en: e.target.value })} />
+          <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="ID único" value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value })} required />
+          <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Título (ES)" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
+          <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Title (EN)" value={form.title_en} onChange={(e) => setForm({ ...form, title_en: e.target.value })} />
+          <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Precio" type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
+          <input className="border border-slate-300 rounded-lg px-3 py-2 sm:col-span-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="URL de imagen" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} required />
+          <textarea className="border border-slate-300 rounded-lg px-3 py-2 sm:col-span-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Descripción (ES)" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+          <textarea className="border border-slate-300 rounded-lg px-3 py-2 sm:col-span-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Description (EN)" value={form.description_en} onChange={(e) => setForm({ ...form, description_en: e.target.value })} />
           <div className="sm:col-span-2 flex gap-2">
-            <Button type="submit">Guardar</Button>
+            <Button type="submit" className="bg-gradient-to-r from-brand to-emerald-600">Guardar</Button>
           </div>
         </form>
       </div>
 
-      <div className="card p-4">
-        <h2 className="font-semibold mb-3">Tus productos</h2>
+      <div className="card p-4 animate-slide-up border border-slate-200 shadow-md" style={{ animationDelay: '500ms' }}>
+        <h2 className="font-bold text-lg text-gray-900 mb-4">📦 Tus productos</h2>
         {products.length === 0 ? (
-          <Alert>Sin productos aún.</Alert>
+          <Alert>Sin productos aún. ¡Crea tu primer producto!</Alert>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map((p) => (
-              <div key={p.id} className="card">
-                <img src={p.image} alt={p.title} className="w-full aspect-square object-cover rounded-t-xl" />
+            {products.map((p, i) => (
+              <div key={p.id} className="card overflow-hidden border border-slate-200 hover:border-brand/40 hover:shadow-lg transition-all animate-slide-up" style={{ animationDelay: `${600 + i * 50}ms` }}>
+                <img src={p.image} alt={p.title} className="w-full aspect-square object-cover rounded-t-xl hover:scale-105 transition-transform" />
                 <div className="p-3">
-                  <div className="font-medium">{p.title}</div>
-                  <div className="text-brand font-semibold">{formatPrice(p.price)}</div>
-                  <div className="mt-2 flex gap-2">
-                    <Button variant="outline" onClick={() => startEdit(p)}>Editar</Button>
-                    <Button variant="danger" onClick={() => remove(p.id)}>Eliminar</Button>
+                  <div className="font-semibold text-gray-900">{p.title}</div>
+                  <div className="text-brand font-bold text-lg mt-1">{formatPrice(p.price)}</div>
+                  <div className="mt-3 flex gap-2">
+                    <Button variant="outline" onClick={() => startEdit(p)} className="flex-1">Editar</Button>
+                    <Button variant="danger" onClick={() => remove(p.id)} className="flex-1">Eliminar</Button>
                   </div>
                 </div>
               </div>

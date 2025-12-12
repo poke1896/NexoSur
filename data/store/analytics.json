@@ -1,11 +1,14 @@
 {
   "artisanVisits": {
-    "tejidos-ojo-agua": 19,
-    "miel-alturas": 2
+    "tejidos-ojo-agua": 26,
+    "miel-alturas": 6,
+    "cacao-brunca": 1,
+    "taller-boruca": 2,
+    "cueros-osa": 2
   },
   "productVisits": {
     "tejidos-ojo-agua": {
-      "bolso-fibra": 2,
+      "bolso-fibra": 4,
       "posavasos-set": 2
     }
   }
