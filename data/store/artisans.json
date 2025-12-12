@@ -24,5 +24,18 @@
         "description_en": "Propolis extract dropper, 30ml concentration."
       }
     ]
+  },
+  "ceramica-buenaventura": {
+    "products": [
+      {
+        "id": "maceta-pequena",
+        "title": "Maceta pequeña",
+        "title_en": "Small planter",
+        "price": 6800,
+        "image": "https://images.unsplash.com/photo-1616486701281-4a5c2cdd5d0b?q=80&w=1200&auto=format&fit=crop",
+        "description": "Maceta de cerámica para suculentas o cactus. Acabado mate.",
+        "description_en": "Ceramic planter for succulents or cacti. Matte finish."
+      }
+    ]
   }
 }

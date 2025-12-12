@@ -41,7 +41,7 @@ export async function POST(request) {
   
   if (!product.title) return NextResponse.json({ error: 'product.title required' }, { status: 400 });
   const updated = await upsertProduct(slug, product);
-  return NextResponse.json({ ok: true, products: updated.products || [] });
+  return NextResponse.json({ ok: true, artisan: updated });
 }
 
 export async function PUT(request) {
