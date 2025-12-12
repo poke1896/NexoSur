@@ -30,7 +30,7 @@ const translations = {
   en: {
     brandTagline: 'Supporting local talent',
     homeTitle: 'Artisans and microbusinesses',
-    homeSubtitle: 'Discover local talent from Costa Rica's Southern Zone.',
+    homeSubtitle: "Discover local talent from Costa Rica's Southern Zone.",
     discoverVentures: 'Discover our ventures',
     handicraft: 'Handicraft',
     viewCatalog: 'View catalog →',
