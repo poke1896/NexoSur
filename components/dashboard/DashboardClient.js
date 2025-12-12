@@ -130,7 +130,9 @@ export default function DashboardClient({ artisanSlug }) {
           <p className="text-sm text-gray-600 mb-3">Para editar, selecciona un producto en la lista y pulsa &quot;Editar&quot;.</p>
         )}
         <form onSubmit={addOrUpdateProduct} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="ID único" value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value })} required />
+          {editingId && (
+            <input className="border border-slate-300 rounded-lg px-3 py-2 bg-slate-100 text-gray-600 cursor-not-allowed" placeholder="ID del producto" value={form.id} disabled />
+          )}
           <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Título (ES)" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
           <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Title (EN)" value={form.title_en} onChange={(e) => setForm({ ...form, title_en: e.target.value })} />
           <input className="border border-slate-300 rounded-lg px-3 py-2 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all" placeholder="Precio" type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />

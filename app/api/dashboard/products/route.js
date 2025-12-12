@@ -31,8 +31,15 @@ export async function POST(request) {
   const slug = getSlug(request);
   if (!slug) return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
   const body = await request.json().catch(() => ({}));
-  const product = body?.product;
-  if (!product?.id) return NextResponse.json({ error: 'product.id required' }, { status: 400 });
+  let product = body?.product;
+  if (!product) return NextResponse.json({ error: 'product required' }, { status: 400 });
+  
+  // Generar ID automáticamente si es nueva creación (no tiene ID o está vacío)
+  if (!product.id || product.id.trim() === '') {
+    product.id = `prod_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+  }
+  
+  if (!product.title) return NextResponse.json({ error: 'product.title required' }, { status: 400 });
   const updated = await upsertProduct(slug, product);
   return NextResponse.json({ ok: true, products: updated.products || [] });
 }
