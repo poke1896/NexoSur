@@ -7,6 +7,7 @@ const translations = {
     brandTagline: 'Apoyando el talento local',
     homeTitle: 'Artesanos y microempresas',
     homeSubtitle: 'Descubre el talento local de la Zona Sur de Costa Rica.',
+    discoverVentures: 'Descubre nuestros emprendimientos',
     back: '← Volver',
     catalog: 'Catálogo',
     dashboard: 'Panel',
@@ -27,8 +28,7 @@ const translations = {
   en: {
     brandTagline: 'Supporting local talent',
     homeTitle: 'Artisans and microbusinesses',
-    homeSubtitle: 'Discover local talent from Costa Rica’s Southern Zone.',
-    back: '← Back',
+    homeSubtitle: 'Discover local talent from Costa Rica’s Southern Zone.',    discoverVentures: 'Discover our ventures',    back: '← Back',
     catalog: 'Catalog',
     dashboard: 'Dashboard',
     monitorVenture: 'Monitor this venture',

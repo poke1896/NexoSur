@@ -46,7 +46,7 @@ export default function HomePage() {
         {loading && <div className="flex justify-center py-12"><div className="text-gray-500 animate-fade-in">Cargando emprendimientos…</div></div>}
         {data && data.length > 0 && (
           <div className="animate-fade-in">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 animate-slide-up">Descubre nuestros emprendimientos</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 animate-slide-up">{t('discoverVentures')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.map((a, i) => (
               <div key={a.id} className="animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
