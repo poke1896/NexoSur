@@ -1,0 +1,28 @@
+{
+  "tejidos-ojo-agua": {
+    "products": [
+      {
+        "id": "bolso-fibra",
+        "title": "Bolso de fibra natural",
+        "title_en": "Natural fiber bag",
+        "price": 18000,
+        "image": "https://images.unsplash.com/photo-1520975661595-6453be3f7070?q=80&w=1200&auto=format&fit=crop",
+        "description": "Bolso tejido a mano con fibras naturales locales. Resistente y ligero.",
+        "description_en": "Handwoven bag with local natural fibers. Sturdy and lightweight."
+      }
+    ]
+  },
+  "miel-alturas": {
+    "products": [
+      {
+        "id": "propoleo-30",
+        "title": "Extracto de propóleo 30ml",
+        "title_en": "Propolis extract 30ml",
+        "price": 4200,
+        "image": "https://images.unsplash.com/photo-1502691876148-a84978e59af8?q=80&w=1200&auto=format&fit=crop",
+        "description": "Extracto de propóleo en gotero, concentración 30ml.",
+        "description_en": "Propolis extract dropper, 30ml concentration."
+      }
+    ]
+  }
+}
