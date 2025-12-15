@@ -26,6 +26,7 @@ const translations = {
     mustLogin: 'Debes iniciar sesión para ver este producto.',
     contactWhatsApp: 'Contactar por WhatsApp',
     backToArtisan: 'Volver al artesano',
+    developedBy: 'Desarrollado por',
   },
   en: {
     brandTagline: 'Supporting local talent',
@@ -50,6 +51,7 @@ const translations = {
     mustLogin: 'You must sign in to view this product.',
     contactWhatsApp: 'Contact via WhatsApp',
     backToArtisan: 'Back to artisan',
+    developedBy: 'Developed by',
   },
 };
 

@@ -3,7 +3,7 @@
 import { useI18n } from '@/i18n/I18nProvider';
 import { useAuth } from '@/auth/AuthProvider';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Alert from '@/components/ui/Alert';
 import Button from '@/components/ui/Button';
 import { useToast } from '@/components/ui/ToastProvider';
@@ -18,19 +18,27 @@ export default function LoginPage() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [artisanSlug, setArtisanSlug] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const artisans = useMemo(() => getArtisans(), []);
   const { show } = useToast();
 
+  useEffect(() => {
+    if (isAuthenticated && !isLoggingIn) {
+      router.push(next);
+    }
+  }, [isAuthenticated, isLoggingIn, next, router]);
+
   async function onSubmit(e) {
     e.preventDefault();
+    setIsLoggingIn(true);
     await login({ name, artisanSlug: artisanSlug || null });
     show(`${t('login')}: ${name || 'Usuario'}`, { type: 'success' });
-    router.push(next);
+    // Usar window.location para forzar recarga y que el servidor verifique la cookie
+    window.location.href = next;
   }
 
-  if (isAuthenticated) {
-    router.push(next);
-    return <p className="text-sm text-gray-600">{t('redirecting')}</p>;
+  if (isAuthenticated && !isLoggingIn) {
+    return null;
   }
 
   return (

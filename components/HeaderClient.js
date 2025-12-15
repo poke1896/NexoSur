@@ -5,11 +5,13 @@ import { useAuth } from '@/auth/AuthProvider';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import { useToast } from '@/components/ui/ToastProvider';
+import { usePathname } from 'next/navigation';
 
 export default function HeaderClient() {
   const { t } = useI18n();
   const { isAuthenticated, user, logout } = useAuth();
   const { show } = useToast();
+  const pathname = usePathname();
   return (
     <header className="border-b border-brand/10 bg-gradient-to-r from-brand/5 via-white to-emerald-50/30 shadow-sm">
       <div className="container-tight py-4 flex items-center justify-between">
@@ -28,6 +30,15 @@ export default function HeaderClient() {
                 onClick={() => {
                   logout();
                   show(t('logout'), { type: 'success' });
+                  // Si está en una página de producto protegida, redirigir
+                  if (pathname && pathname.includes('/products/')) {
+                    const artisanMatch = pathname.match(/\/artisans\/([^/]+)/);
+                    if (artisanMatch) {
+                      window.location.href = `/artisans/${artisanMatch[1]}`;
+                    } else {
+                      window.location.href = '/';
+                    }
+                  }
                 }}
                 variant="neutral"
               >

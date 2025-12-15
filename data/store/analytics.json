@@ -1,16 +1,19 @@
 {
   "artisanVisits": {
-    "tejidos-ojo-agua": 37,
+    "tejidos-ojo-agua": 48,
     "miel-alturas": 10,
-    "cacao-brunca": 1,
+    "cacao-brunca": 4,
     "taller-boruca": 2,
     "cueros-osa": 6,
     "ceramica-buenaventura": 10
   },
   "productVisits": {
     "tejidos-ojo-agua": {
-      "bolso-fibra": 4,
+      "bolso-fibra": 11,
       "posavasos-set": 2
+    },
+    "cacao-brunca": {
+      "tableta-70": 4
     }
   }
 }
